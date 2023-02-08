@@ -45,3 +45,9 @@ code {
 .card {
   display: flex;
 }
+.form {
+  text-align: center;
+}
+.search-box {
+  text-align: center;
+}

@@ -4,11 +4,30 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restaurant, setRestaurant] = useState([]);
+  const [filteredRestaurant, setfilteredRestaurant] = useState([]);
   const [isLoading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  const filteredRestaurantHandler = (e) => {
+    setSearch(e.target.value);
+    const newRestaurant = restaurant.filter((curr) =>
+      curr.data.name.toLowerCase().includes(search.toLowerCase())
+    );
+
+    setfilteredRestaurant(newRestaurant);
+  };
+  const searchSubmitHandler = (e) => {
+    setSearch(e.target.value);
+    console.log(e.target.value);
+    const newRestaurant = restaurant.filter((curr) => {
+      return curr.data.name.includes(search.toLowerCase());
+    });
+    setfilteredRestaurant(newRestaurant);
+  };
 
   async function fetchData() {
     const data = await fetch(
@@ -16,15 +35,26 @@ const Body = () => {
     );
     const json = await data.json();
     setRestaurant(json?.data?.cards[2]?.data?.data?.cards);
+    setfilteredRestaurant(json?.data?.cards[2]?.data?.data?.cards);
     setLoading(false);
   }
 
   return (
     <>
+      <div className="search-box">
+        <input
+          type="search"
+          placeholder="Enter your restaurant"
+          onChange={filteredRestaurantHandler}
+          value={search}
+        />
+        <button onClick={searchSubmitHandler}>Search</button>
+      </div>
+
       {isLoading ? (
         <Shimmer />
       ) : (
-        restaurant.map((curr) => {
+        filteredRestaurant.map((curr) => {
           return (
             <div className="card">
               <RestaurantCard data={curr} key={curr.data.id} />

@@ -1,5 +1,6 @@
 import React from "react";
 import { IMG_CDN_URL } from "./assets/Constants";
+import Button from "./Button";
 
 const RestaurantCard = (props) => {
   return (
@@ -14,6 +15,7 @@ const RestaurantCard = (props) => {
         <p>With the ratings of {props.data.data.avgRating}</p>
         <p>cost for two: Rs {props.data.data.costForTwo}</p>
       </div>
+      <Button type="button" title="see more" />
     </div>
   );
 };
