@@ -1,13 +1,47 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.logo {
+  width: 200px;
+  height: 200px;
+}
+.nav {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  padding-left: 2px;
+}
+.header {
+  border: 2px black solid;
+  display: flex;
+}
+.title {
+  color: purple;
+}
+.restaurantcard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  width: 40%;
+}
+.restaurantcard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+.container {
+  padding: 2px 16px;
+}
+.imge {
+  width: 40%;
+}
+.card {
+  display: flex;
 }
