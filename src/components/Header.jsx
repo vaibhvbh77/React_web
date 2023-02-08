@@ -8,9 +8,17 @@ const Header = () => {
       <br />
       <div className="title"> Welcome to Swiggy !</div>
       <ul className="nav">
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact Us</li>
+        <Link to="/">
+          <li>Home</li>
+        </Link>
+
+        <Link to="/about">
+          <li>About</li>
+        </Link>
+
+        <Link to="/contact">
+          <li>Contact Us</li>
+        </Link>
       </ul>
     </div>
   );
